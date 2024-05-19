@@ -1,0 +1,33 @@
+/* src/components/PersonList.css */
+.person-list {
+    font-family: Arial, sans-serif;
+  }
+  
+  .person-list table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .person-list th, .person-list td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .person-list th {
+    background-color: #f2f2f2;
+  }
+  
+  .person-list th:first-child, .person-list td:first-child {
+    width: 100px;
+  }
+  
+  .person-list tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .person-list tr:hover {
+    background-color: #ddd;
+  }
+  
