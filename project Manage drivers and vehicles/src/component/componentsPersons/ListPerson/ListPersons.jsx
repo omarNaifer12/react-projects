@@ -4,7 +4,7 @@ import "./people.css"
 import { useNavigate } from 'react-router-dom';
 function ListPersons() {
 const [persons,setPersons]=useState([]);
- const navigate=useNavigate();
+const navigate=useNavigate();
 useEffect(()=>{
     const fetchData = async () => {
         try {
@@ -15,13 +15,22 @@ useEffect(()=>{
         } catch (error) {
           console.error('Error fetching data:', error);
         }
-      };
-  
+      };  
       fetchData();
-},[]) 
+},[])
 const handleDelete = async (id) => {
   if (window.confirm("Are you sure you want to delete this person?")) {
-    await deletePerson(id);
+    try {
+      const response = await axios.delete(`http://localhost:3000/people/${id}`);
+      setPersons(persons.filter((person)=>{
+        return person.id!==id;
+      }))
+      alert('Delete successful');
+    
+    } catch (error) {
+      console.error('Error deleting person:', error);
+      alert('Failed to delete person');
+    }
   }
 };
 
@@ -69,7 +78,7 @@ return (
             <td>
               <p>{console.log("id",person.id)}</p>
               <button className="edit-button" onClick={() => navigate(`/edit-Person/${person.id}`)}>Edit</button>
-              <button className="delete-button" >Delete</button>
+              <button className="delete-button" onClick={()=>handleDelete(person.id)}>Delete</button>
               <button className="delete-button"  onClick={()=>navigate(`/Person-details/${person.id}`)}>Show Details</button>
             </td>
           </tr>
