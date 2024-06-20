@@ -37,6 +37,7 @@ const handleDelete = async (id) => {
 return (
   <div className="person-list">
     <h1>Manage People</h1>
+    <button onClick={()=>navigate('/all-users')}>users</button>
     <button className="add-button" onClick={() => navigate("/add-Person")}>Add Person</button>
     <table className="person-table">
       <thead>

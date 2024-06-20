@@ -7,14 +7,31 @@ const Add_Edit_Person = () => {
   const {id}=useParams();
   const navigate=useNavigate();
  
-  const{ getPersonById,person,setPerson}=useContext(StoreContext);
+  const{getPersonById,person,setPerson}=useContext(StoreContext);
   useEffect(() => {
+    
+      
+    
     const fetchPerson = async () => {
+      setPerson({
+        FirstName: '',
+        SecondName: '',
+        ThirdName: '',
+        LastName: '',
+        NationalNo: '',
+        DateOfBirth: '',
+        Gendor: '',
+        Address: '',
+        Phone: '',
+        Email: '',
+        NationalityCountryID: '',
+        ImagePath: ''
+      });
     if(id!==undefined){ 
    await getPersonById(id);
   }
+ 
   };
-
     fetchPerson();
   }, [id]);
   const handleChange = (e) => {
