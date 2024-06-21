@@ -1,8 +1,7 @@
-
+/* Navbar.css */
 .navbar {
     background-color: #333;
-    padding: 10px 20px;
-    font-family: 'Roboto', sans-serif;
+    padding: 10px;
   }
   
   .navbar-menu {
@@ -14,25 +13,18 @@
   
   .navbar-item {
     position: relative;
-    margin-right: 20px;
+    padding: 10px;
+    color: white;
+    cursor: pointer;
   }
   
-  .navbar-item a,
-  .navbar-item span {
+  .navbar-item > a {
     color: white;
     text-decoration: none;
-    padding: 10px 15px;
+  }
+  
+  .navbar-item:hover > .dropdown-menu {
     display: block;
-    transition: background-color 0.3s;
-  }
-  
-  .navbar-item a:hover,
-  .navbar-item span:hover {
-    background-color: #555;
-  }
-  
-  .dropdown {
-    cursor: pointer;
   }
   
   .dropdown-menu {
@@ -40,21 +32,34 @@
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: #333;
-    min-width: 200px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    background-color: #444;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    min-width: 200px; /* Consistent minimum width */
   }
   
   .dropdown-menu li {
-    margin: 0;
+    position: relative;
   }
   
   .dropdown-menu li a {
-    padding: 10px 15px;
+    color: white;
+    padding: 10px;
+    display: block;
+    text-decoration: none;
+    min-width: 200px; /* Ensuring links also have consistent width */
   }
   
-  .navbar-item:hover .dropdown-menu {
+  .dropdown-menu li:hover > .dropdown-menu {
     display: block;
+    top: 0;
+    left: 100%;
+    margin-left: 2px; /* Small margin to avoid overlap */
+  }
+  
+  .dropdown-menu li:hover > a {
+    background-color: #555;
   }
   
   .dropdown-menu li a:hover {

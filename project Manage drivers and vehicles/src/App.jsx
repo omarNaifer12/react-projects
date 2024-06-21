@@ -11,6 +11,8 @@ import CptUserInformation from './component/users/CptUserInformation/CptUserInfo
 import Home from './component/Home/Home';
 import Navbar from './component/Navbar/Navbar ';
 import LoginForm from './component/LoginForm/LoginForm';
+import ApplicationType from './component/ApplicationType/ApplicationType';
+import TestType from './component/TestType/TestType';
 const App = () => {
   return (
     <div>
@@ -26,7 +28,11 @@ const App = () => {
  <Route path='/user-details/:id' element={<CptUserInformation />} />     
  <Route path='/Home' element={<Home />} />     
  <Route path='/navbar' element={<Navbar />} />     
- <Route path='/' element={<LoginForm />} />     
+ <Route path='/' element={<LoginForm />} />   
+ <Route path='/Application-type' element={<ApplicationType />} />   
+ <Route path='/Test-type' element={<TestType />} />   
+
+
 
       </Routes>
    

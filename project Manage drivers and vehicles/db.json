@@ -81,15 +81,6 @@
   ],
   "users": [
     {
-      "id": "adsc",
-      "UserID": 2,
-      "PersonID": 2,
-      "Password": "sss",
-      "FullName": "Jane Smith",
-      "UserName": "janesmith",
-      "isActive": true
-    },
-    {
       "id": "ad",
       "UserID": 3,
       "Password": "omar",
@@ -113,6 +104,43 @@
       "FullName": "John Doe",
       "UserName": "saer",
       "isActive": false
+    }
+  ],
+  "ApplicationType": [
+    {
+      "id": "1",
+      "ApplicationTypeTitle": "Driving License",
+      "ApplicationFees": "48"
+    },
+    {
+      "id": "2",
+      "ApplicationTypeTitle": "Driving License Renewal",
+      "ApplicationFees": 30
+    },
+    {
+      "id": "3",
+      "ApplicationTypeTitle": "Driving License Replacement",
+      "ApplicationFees": "26"
+    }
+  ],
+  "TestType": [
+    {
+      "id": "1",
+      "TestTypeTitle": "zdazdaddddd",
+      "TestTypeDescription": "very good very nice",
+      "TestTypeFees": "30"
+    },
+    {
+      "id": "2",
+      "TestTypeTitle": "azddzazdaé",
+      "TestTypeDescription": "very good very nice",
+      "TestTypeFees": "30"
+    },
+    {
+      "id": "3",
+      "TestTypeTitle": "edez",
+      "TestTypeDescription": "very good very nice",
+      "TestTypeFees": "21"
     }
   ]
 }
