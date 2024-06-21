@@ -15,7 +15,7 @@ const LoginInfo = () => {
 
 
   const handleSave = async () => {
-   if(person){
+   if(person.id){
     if (!checkPassword()) {
       alert('Passwords do not match');
       return;

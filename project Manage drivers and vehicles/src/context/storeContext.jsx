@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import axios from "axios"
 export const StoreContext=createContext(null);
 const StoreContextProvider=({children})=>{
-  const [inputId, setInputId] = useState('');
+  
   const [searchId, setSearchId] = useState(undefined);
     const[person,setPerson] =useState({
         FirstName: '',
@@ -21,6 +21,14 @@ const StoreContextProvider=({children})=>{
         NationalityCountryID: '',
         ImagePath: '',
       })
+      const [user,setUser]=useState({
+        PersonID: "",
+        Password: "",
+        FullName: "John Doe",
+        UserName: "",
+        isActive: false
+  
+      })
 const getPersonById=async(id)=>{
         try{
           const response = await axios.get(`http://localhost:3000/people/${id}`);
@@ -32,15 +40,27 @@ const getPersonById=async(id)=>{
         return false;
         }
       };
+      const getUserById=async(id)=>{
+        try{
+          const response = await axios.get(`http://localhost:3000/users/${id}`);
+          setUser(response.data);
+         
+          return true;
+        }catch(error){
+          console.log('Error fetching user:',error);
+        return false;
+        }
+      };
 
     const contextValue={
     getPersonById,
     person,
     setPerson,
-    inputId,
-    setInputId,
     searchId,
     setSearchId,
+    getUserById,
+    user,
+    setUser,
     }
     return(
     <StoreContext.Provider value={contextValue}>

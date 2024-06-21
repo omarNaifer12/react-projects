@@ -39,6 +39,7 @@ const AllUsers = () => {
     <div className="all-users">
       <h1 className="label-manage-users">Manage Users</h1>
       <button className="add-button" onClick={() => navigate('/add-users')}>Add User</button>
+     
       <table className="users-table">
         <thead>
           <tr>
@@ -59,9 +60,10 @@ const AllUsers = () => {
               <td>{user.UserName}</td>
               <td>{user.isActive ? '✅' : '❌'}</td>
               <td>
-                <button className="edit-button" onClick={() => navigate(`/edit-user/${user.UserID}`)}>Edit</button>
+                <button className="edit-button" onClick={() => navigate(`/edit-user/${user.id}`)}>Edit</button>
                 <button className="delete-button" onClick={() => handleDelete(user.id)}>Delete</button>
-                <button className="details-button" onClick={() => navigate(`/user-details/${user.UserID}`)}>Details</button>
+                <button className="details-button" onClick={() => navigate(`/user-details/${user.id}`)}>Details</button>
+                <button onClick={()=>navigate(`/change-password/${user.id}`)}>change password</button>
               </td>
             </tr>
           ))}
