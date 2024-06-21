@@ -1,22 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './AllUsers.css';
+import { StoreContext } from '../../../context/storeContext';
 
 const AllUsers = () => {
-  const [users, setUsers] = useState([]);
+  const {users, setUsers} = useContext(StoreContext);
   const navigate = useNavigate();
-  useEffect(() => {
-    const fetchUsers = async () => {
-    try {
-        const response = await axios.get('http://localhost:3000/users');
-        setUsers(response.data);
-      } catch (error) {
-        console.error('Error fetching users:', error);
-      }
-    };
-    fetchUsers();
-  },[]);
+
   const handleDelete = async (UserID) => {
     if (window.confirm('Are you sure you want to delete this user?')) {
        

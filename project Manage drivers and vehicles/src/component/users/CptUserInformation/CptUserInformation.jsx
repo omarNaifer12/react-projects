@@ -2,7 +2,10 @@ import React, { useContext,useEffect } from 'react'
 import "./CptUserInformation.css"
 import { StoreContext } from '../../../context/storeContext'
 import CptPersonInformation from '../../componentsPersons/CptPersonInformation/CptPersonInformation';
+import { useParams } from 'react-router-dom';
 const CptUserInformation = ({userID}) => {
+   const {id}=useParams();
+
     const{user,setUser,getUserById}=useContext(StoreContext);
     useEffect(()=>{
         const fetchUser=async()=>{
@@ -14,9 +17,9 @@ const CptUserInformation = ({userID}) => {
                 UserName: "",
                 isActive: false
             });
-          
-    if(userID){ 
-    const respnse= await getUserById(userID);
+         const ID=userID?userID:id; 
+    if(ID){ 
+    const respnse= await getUserById(ID);
     console.log("resonseda",respnse);
     if(!respnse){
       alert(" error user id ");
@@ -25,7 +28,7 @@ const CptUserInformation = ({userID}) => {
    
     };
     fetchUser();
-    },[userID]);
+    },[userID,id]);
   return (
     <div className="user-info-container">
       <CptPersonInformation id={user.PersonID} />

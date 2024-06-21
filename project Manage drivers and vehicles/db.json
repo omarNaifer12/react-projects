@@ -81,15 +81,6 @@
   ],
   "users": [
     {
-      "id": "acd",
-      "UserID": 1,
-      "PersonID": 1,
-      "Password": "sss",
-      "FullName": "John Doe",
-      "UserName": "johndoe",
-      "isActive": true
-    },
-    {
       "id": "adsc",
       "UserID": 2,
       "PersonID": 2,
@@ -118,7 +109,7 @@
     {
       "id": "e74b",
       "PersonID": "2dcf",
-      "Password": "55",
+      "Password": "11",
       "FullName": "John Doe",
       "UserName": "saer",
       "isActive": false

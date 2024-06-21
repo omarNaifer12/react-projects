@@ -1,17 +1,20 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import axios from 'axios';
 import "./people.css"
 import { useNavigate } from 'react-router-dom';
+import { StoreContext } from '../../../context/storeContext';
 function ListPersons() {
 const [persons,setPersons]=useState([]);
 const navigate=useNavigate();
+const {user}=useContext(StoreContext);
 useEffect(()=>{
     const fetchData = async () => {
-        try {
+      console.log("user us ",user);
+      try {
           const response = await axios.get('http://localhost:3000/people');
           console.log('API response:',response.data);
           setPersons(response.data);
-         console.log("data",persons);
+       
         } catch (error) {
           console.error('Error fetching data:', error);
         }

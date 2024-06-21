@@ -43,15 +43,28 @@ const getPersonById=async(id)=>{
       const getUserById=async(id)=>{
         try{
           const response = await axios.get(`http://localhost:3000/users/${id}`);
+          console.log("responsedata ",response.data);
           setUser(response.data);
          
-          return true;
+          return response.data;
         }catch(error){
           console.log('Error fetching user:',error);
         return false;
         }
       };
-
+      const [users, setUsers] = useState([]);
+     
+      useEffect(() => {
+        const fetchUsers = async () => {
+        try {
+            const response = await axios.get('http://localhost:3000/users');
+            setUsers(response.data);
+          } catch (error) {
+            console.error('Error fetching users:', error);
+          }
+        };
+        fetchUsers();
+      },[]);
     const contextValue={
     getPersonById,
     person,
@@ -61,6 +74,8 @@ const getPersonById=async(id)=>{
     getUserById,
     user,
     setUser,
+    users,
+    setUsers,
     }
     return(
     <StoreContext.Provider value={contextValue}>
